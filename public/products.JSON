@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "product_name": "pen",
+    "category": "pens",
+    "quantity": 2000,
+    "quantity_per_box": 100,
+    "item_weight": 0.05,
+    "box_weight": 5
+  }
+]
