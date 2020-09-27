@@ -1,25 +1,30 @@
+# frozen_string_literal: true
+
 require 'tty-prompt'
+require 'terminal-table'
 require 'tty-font'
 require 'colorize'
+require_relative 'run'
+require_relative 'product_repository'
 
-# class Main_menu
-
-  # def initialize
-  #   Main_menu::PROMPT
-  # end
+class MainMenu
+  include ProductHelper
+  def initialize
+    @product_repository = ProductRepository.new
+  end
 
   def intro
     font = TTY::Font.new(:doom)
-      puts font.write("Warehouse").colorize(:color => :black, :background => :blue)
-      puts font.write("            Stock").colorize(:color => :black, :background => :blue)
-      puts font.write("                   App").colorize(:color => :black, :background => :blue)
+    puts font.write('Warehouse').colorize(color: :black, background: :blue)
+    puts font.write('            Stock').colorize(color: :black, background: :blue)
+    puts font.write('                   App').colorize(color: :black, background: :blue)
   end
-  
-  # def version
-  #   TTY::Box.frame(title: { bottom_right: "v1.0"}) do
-  #     "MY WAREHOUSE STOCK APP"
-  #   end
-  # end
+
+  def terminal_table
+    rows = @product_repository.products.map(&:to_a)
+    table = Terminal::Table.new({ headings: HEADINGS, rows: rows })
+    puts table
+  end
 
   def selection
     prompt = TTY::Prompt.new
@@ -34,24 +39,26 @@ require 'colorize'
   end
 
   def router
-      puts intro
-      loop do
-        case selection
-        when '1'
-          puts "add new product"
-        when '2'
-          puts 'View my stock list'
-        when '3'
-          puts 'Manage my stock'
-        when '4'
-          puts 'In and Out'
-        when '5'
-          puts 'Display In and Out report'
-        when '6'
-          exit
-        end
+    puts intro
+    loop do
+      case selection
+      when '1'
+        puts 'add new product'
+      when '2'
+        puts 'View my stock list'
+        terminal_table
+      when '3'
+        puts 'Manage my stock'
+      when '4'
+        puts 'In and Out'
+      when '5'
+        puts 'Display In and Out report'
+      when '6'
+        exit
       end
+    end
   end
-# end
+end
 
-router
+app = MainMenu.new
+app.router
