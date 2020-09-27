@@ -1,11 +1,29 @@
 [
   {
     "id": 1,
-    "product_name": "pen",
+    "product": "pen",
     "category": "pens",
     "quantity": 2000,
-    "quantity_per_box": 100,
-    "item_weight": 0.05,
-    "box_weight": 5
+    "quantity per box": 100,
+    "item weight": 0.05,
+    "box weight": 5
+  },
+  {
+    "id": 2,
+    "product": "pencil",
+    "category": "pencils",
+    "quantity": 2000,
+    "quantity per box": 300,
+    "item weight": 0.05,
+    "box weight": 5
+  },
+  {
+    "id": 3,
+    "product": "eraser",
+    "category": "erasers",
+    "quantity": 2000,
+    "quantity per box": 400,
+    "item weight": 0.05,
+    "box weight": 5
   }
 ]
