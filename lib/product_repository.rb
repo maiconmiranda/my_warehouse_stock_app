@@ -4,8 +4,8 @@ require 'json'
 require_relative 'product_helper'
 require_relative 'product'
 
-class ProductRepository
-  attr_reader :products
+class ProductFile
+  attr_accessor :products
 
   include ProductHelper
 
@@ -21,39 +21,42 @@ class ProductRepository
         product['product'],
         product['category'],
         product['quantity'],
-        product['quantity per box'],
-        product['item weight'],
-        product['box weight']
+        product['quantity_per_box'],
+        product['item_weight'],
+        product['box_weight']
       )
     end
   end
 
-  # def write_product
-  #   data = @products.map do |product|
-  #     {
-  #       id: product.id,
-  #       product: product.product,
-  #       category: product.category,
-  #       qantity_per_box: product.qantity_per_box,
-  #       item_weight: product.item_weight,
-  #       box_weight: product.box_weight
-  #     }
-  #   end
-  #   File.write(PRODUCTS_DATABASE, JSON.pretty_generate(data))
-  # end
+  def write_product
+    data = @products.map do |product|
+      {
+        id: product.id,
+        product: product.product,
+        category: product.category,
+        quantity: product.quantity,
+        quantity_per_box: product.quantity_per_box,
+        item_weight: product.item_weight,
+        box_weight: product.box_weight
+      }
+    end
+    File.write(PRODUCT_DATABASE, JSON.pretty_generate(data))
+  end
 
-  # def create_bookmark
-  #   bookmark = Bookmark.bookmark_user_input
-  #   @bookmarks << Bookmark.new(
-  #     @bookmarks.length + 1,
-  #     bookmark[:title],
-  #     bookmark[:url],
-  #     validate_tags(bookmark[:tags]),
-  #     bookmark[:description]
-  #   )
-  # end
-
-  # def validate_tags(tags)
-  #   tags.split(',')
-  # end
+  def create_product
+    product = Product.product_user_input
+    @products << Product.new(
+      @products.length + 1,
+      product[:product],
+      product[:category],
+      product[:quantity].to_i,
+      product[:quantity_per_box].to_f,
+      product[:item_weight].to_f
+    )
+  end
 end
+
+# pop = ProductFile.new
+# pop.create_product
+# pop.write_product
+# p pop
