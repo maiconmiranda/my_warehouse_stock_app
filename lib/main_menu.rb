@@ -4,13 +4,14 @@ require 'tty-prompt'
 require 'terminal-table'
 require 'tty-font'
 require 'colorize'
-require_relative 'run'
+require_relative 'product_helper'
 require_relative 'product_repository'
 
 class MainMenu
   include ProductHelper
+
   def initialize
-    @product_repository = ProductRepository.new
+    @product_repository = ProductFile.new
   end
 
   def intro
@@ -43,7 +44,8 @@ class MainMenu
     loop do
       case selection
       when '1'
-        puts 'add new product'
+        @product_repository.create_product
+        @product_repository.write_product
       when '2'
         puts 'View my stock list'
         terminal_table
@@ -54,6 +56,7 @@ class MainMenu
       when '5'
         puts 'Display In and Out report'
       when '6'
+
         exit
       end
     end
