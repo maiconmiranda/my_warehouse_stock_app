@@ -17,8 +17,8 @@ class MainMenu
   def intro
     font = TTY::Font.new(:doom)
     puts font.write('Warehouse').colorize(color: :black, background: :blue)
-    puts font.write('            Stock').colorize(color: :black, background: :blue)
-    puts font.write('                   App').colorize(color: :black, background: :blue)
+    puts font.write('              Stock              ').colorize(color: :black, background: :blue)
+    puts font.write('                       App               ').colorize(color: :black, background: :blue)
   end
 
   def terminal_table
@@ -28,7 +28,7 @@ class MainMenu
   end
 
   def selection
-    prompt = TTY::Prompt.new
+    prompt = PROMPT
     prompt.select('Welcome to My Warehouse Stock app!') do |menu|
       menu.choice({ name: 'Add new product', value: '1' })
       menu.choice({ name: 'View my stock list', value: '2' })
@@ -50,13 +50,12 @@ class MainMenu
         puts 'View my stock list'
         terminal_table
       when '3'
-        puts 'Manage my stock'
+        @product_repository.menu_selection
       when '4'
         puts 'In and Out'
       when '5'
         puts 'Display In and Out report'
       when '6'
-
         exit
       end
     end

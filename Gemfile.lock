@@ -49,6 +49,7 @@ PLATFORMS
 
 DEPENDENCIES
   colorize (~> 0.8.1)
+  pastel
   rspec (~> 3.9)
   terminal-table (~> 1.8)
   tty-box (~> 0.6.0)

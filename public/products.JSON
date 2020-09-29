@@ -1,32 +1,5 @@
 [
   {
-    "id": 1,
-    "product": "pen",
-    "category": "pens",
-    "quantity": 2000,
-    "quantity_per_box": 150,
-    "item_weight": 0.04,
-    "box_weight": 6.0
-  },
-  {
-    "id": 2,
-    "product": "pencil",
-    "category": "pencils",
-    "quantity": 2000,
-    "quantity_per_box": 120,
-    "item_weight": 0.4,
-    "box_weight": 48.0
-  },
-  {
-    "id": 3,
-    "product": "eraser",
-    "category": "erasers",
-    "quantity": 2000,
-    "quantity_per_box": 100,
-    "item_weight": 0.5,
-    "box_weight": 50.0
-  },
-  {
     "id": 4,
     "product": "bottle",
     "category": "drink",
@@ -43,5 +16,41 @@
     "quantity_per_box": 500.0,
     "item_weight": 0.005,
     "box_weight": 2.5
+  },
+  {
+    "id": 6,
+    "product": "rule",
+    "category": "office supplies",
+    "quantity": 50000,
+    "quantity_per_box": 200.0,
+    "item_weight": 0.003,
+    "box_weight": 0.6
+  },
+  {
+    "id": 11,
+    "product": "rule",
+    "category": "office supplies",
+    "quantity": 50000,
+    "quantity_per_box": 200.0,
+    "item_weight": 0.003,
+    "box_weight": 0.6
+  },
+  {
+    "id": 12,
+    "product": "rule",
+    "category": "office supplies",
+    "quantity": 50000,
+    "quantity_per_box": 200.0,
+    "item_weight": 0.003,
+    "box_weight": 0.6
+  },
+  {
+    "id": 7,
+    "product": "pen",
+    "category": "office",
+    "quantity": 50000,
+    "quantity_per_box": 50.0,
+    "item_weight": 0.006,
+    "box_weight": 0.3
   }
 ]
