@@ -10,4 +10,5 @@ gem 'terminal-table', '~> 1.8'
 gem 'tty-box', '~> 0.6.0'
 gem 'tty-font', '~> 0.5.0'
 gem 'tty-prompt', '~> 0.22.0'
+gem "tty-table"
 gem "pastel"

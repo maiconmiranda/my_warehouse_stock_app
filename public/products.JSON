@@ -1,56 +1,38 @@
 [
   {
-    "id": 4,
-    "product": "bottle",
-    "category": "drink",
-    "quantity": 5000,
+    "id": 1,
+    "product": "ooshies",
+    "category": "promotional",
+    "quantity": 50000,
     "quantity_per_box": 50.0,
-    "item_weight": 0.08,
-    "box_weight": 4.0
+    "item_weight": 0.007,
+    "box_weight": 0.35000000000000003
   },
   {
-    "id": 5,
-    "product": "screen protector",
-    "category": "mobile",
-    "quantity": 50000,
-    "quantity_per_box": 500.0,
-    "item_weight": 0.005,
-    "box_weight": 2.5
+    "id": 2,
+    "product": "bottles",
+    "category": "drinks",
+    "quantity": 40000,
+    "quantity_per_box": 40.0,
+    "item_weight": 0.06,
+    "box_weight": 2.4
   },
   {
-    "id": 6,
-    "product": "rule",
-    "category": "office supplies",
-    "quantity": 50000,
-    "quantity_per_box": 200.0,
-    "item_weight": 0.003,
-    "box_weight": 0.6
-  },
-  {
-    "id": 11,
-    "product": "rule",
-    "category": "office supplies",
-    "quantity": 50000,
-    "quantity_per_box": 200.0,
-    "item_weight": 0.003,
-    "box_weight": 0.6
-  },
-  {
-    "id": 12,
-    "product": "rule",
-    "category": "office supplies",
-    "quantity": 50000,
-    "quantity_per_box": 200.0,
-    "item_weight": 0.003,
-    "box_weight": 0.6
-  },
-  {
-    "id": 7,
+    "id": 3,
     "product": "pen",
     "category": "office",
-    "quantity": 50000,
+    "quantity": 70000,
     "quantity_per_box": 50.0,
-    "item_weight": 0.006,
-    "box_weight": 0.3
+    "item_weight": 0.01,
+    "box_weight": 0.5
+  },
+  {
+    "id": 4,
+    "product": "phone",
+    "category": "electronics",
+    "quantity": 5000,
+    "quantity_per_box": 10.0,
+    "item_weight": 0.05,
+    "box_weight": 0.5
   }
 ]
