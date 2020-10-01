@@ -2,6 +2,10 @@
 
 require 'tty-prompt'
 require 'json'
+require 'terminal-table'
+require 'pastel'
+require 'tty-table'
+require 'colorize'
 require_relative 'product_helper'
 require_relative 'product'
 
@@ -56,16 +60,57 @@ class ProductFile
     )
   end
 
+  def set_product_names
+    product_names = @products.map do |product|
+      product.product
+    end
+    product_names
+  end
+
   def select_delete
     index = FILE_READ
     delete_prompt = PROMPT_DELETE
-    selected = JSON.parse(index).find do |item|
-      item['product'] == delete_prompt.select('Which Product you want to delete?',
-                                              JSON.parse(index).map { |product| product['product'] })
+    choice = delete_prompt.select('Which Product you want to delete?', set_product_names) do |menu|
+      menu.enum '.'
     end
-    p selected
-    i = JSON.parse(index).index { |item| item == selected }
-    @products.delete_at(i)
+    product_index = @products.index { |h| h.product == choice }
+    p product_index
+
+    hash = @products.map do |product|
+      {
+        'id' => product.id,
+        'product' => product.product,
+        'category' => product.category,
+        'quantity' => product.quantity,
+        'quantity_per_box' => product.quantity_per_box,
+        'item_weight:' => product.item_weight,
+        'box_weight' => product.box_weight
+      }
+    end
+    list = hash[product_index]
+
+    key = []
+    row = []
+    list.each_pair do |k, v|
+      key << k.colorize(:yellow)
+      row << v.to_s.colorize(:red)
+    end
+    table = TTY::Table.new
+    table << key
+    table << row
+    puts table.render(:unicode, alignments: :center, padding: [1, 2, 1, 2]) do |renderer|
+      renderer.border.separator = :each_row
+    end
+
+    prompt = PROMPT_DELETE
+    result = prompt.yes?('Are you sure you want delete?')
+    if result
+      @products.delete_at(product_index)
+      write_product
+      manage_menu
+    else
+      manage_menu
+    end
   end
 
   def manage_menu
@@ -82,11 +127,11 @@ class ProductFile
       case manage_menu
       when '1'
         puts 'not available'
-        manage_menu
+        MainMenu.new.router
       when '2'
         select_delete
       when '3'
-        exit
+        MainMenu.new.router
       end
     end
   end
