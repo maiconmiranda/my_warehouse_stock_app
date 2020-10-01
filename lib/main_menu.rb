@@ -50,6 +50,7 @@ class MainMenu
         puts 'View my stock list'
         terminal_table
       when '3'
+        # select_delete
         @product_repository.menu_selection
       when '4'
         puts 'In and Out'
