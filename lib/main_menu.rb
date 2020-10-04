@@ -42,6 +42,7 @@ class MainMenu
     end
   end
 
+
   def router
     puts intro
     loop do
@@ -57,11 +58,9 @@ class MainMenu
         puts 'In and Out'
         @product_repository.in_out_selection
       when '5'
+        @product_repository.write_product
         exit
       end
     end
   end
 end
-
-app = MainMenu.new
-app.router

@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+puts "Installing dependencies"
+
+# get bin directory absolute path
+filepath = File.dirname __FILE__
+# change into bin directory
+Dir.chdir(filepath)
+# actually install dependencies
+system("bundle install")

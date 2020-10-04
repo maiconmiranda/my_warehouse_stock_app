@@ -26,4 +26,5 @@ module ProductHelper
 
   in_out_color = Pastel.new.on_yellow.bold.detach
   PROMPT_IN_OUT = TTY::Prompt.new(active_color: in_out_color, symbols: { radio_on: 'x' })
+
 end
