@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'pastel'
-require 'colorized_string'
+require 'colorize'
 
 module ProductHelper
   path = File.dirname(__FILE__).split('/')
@@ -11,7 +11,9 @@ module ProductHelper
   DELETE_CHOICES = %i[product id].freeze
 
   INPUTS = %i[product category quantity quantity_per_box item_weight].freeze
-  HEADINGS = %i[id product category quantity quantity_per_box item_weight box_weight_in_kg].freeze
+  headings = %w[id product category quantity quantity_per_box item_weight box_weight_in_kg]
+
+  HEADINGS = headings.map { |x| x.colorize(:green)}
 
   color = Pastel.new.white.on_blue.bold.detach
   PROMPT = TTY::Prompt.new(active_color: color)
