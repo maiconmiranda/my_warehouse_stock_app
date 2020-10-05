@@ -58,6 +58,7 @@ GEM
     wisper (2.0.1)
 
 PLATFORMS
+  unknown
   x64-mingw32
 
 DEPENDENCIES
