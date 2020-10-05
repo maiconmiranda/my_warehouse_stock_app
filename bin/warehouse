@@ -3,7 +3,7 @@
 # gems
 require 'tty-table'
 require 'tty-prompt'
-# require 'tty-markdown'
+require 'tty-markdown'
 
 # files
 require_relative '../lib/main_menu'
@@ -13,19 +13,23 @@ require_relative '../lib/product_repository'
 app = MainMenu.new
 
 
-  # path = File.dirname(__FILE__).split('/')
-  # path.pop
-  # help_database = "#{path.join('/')}my_warehouse_stock_app/public/file.md"
-  # help = TTY::Markdown.parse_file(help_database)
+  path = File.dirname(__FILE__).split('/')
+  path.pop
+  help_database = "#{path.join('/')}/public/file.md"
+  help = TTY::Markdown.parse_file(help_database)
 
 
 if ARGV[0] == "-h"
-  # puts help
+  puts help
   exit
 end
 
 if ARGV[0] == "-l" || ARGV[0] == "--list"
   app.terminal_table
+elsif ARGV[0] == "-add"
+  ProductFile.new.create_product
+elsif ARGV[0] == "-in"
+  ProductFile.new.in_out_selection
 else
   app.router
 end

@@ -59,6 +59,7 @@ class ProductFile
       product[:item_weight],
       product[:box_weight]
     )
+    write_product
   end
 
   # display confirmation message after delete
@@ -208,7 +209,7 @@ class ProductFile
   def in_new
     prompt = PROMPT_IN_OUT
     in_qty = prompt.collect do
-      key(:in_out_qty).ask('Waht is the quantity to be added? ', convert: :integer)
+      key(:in_out_qty).ask('Waht is the quantity to be added/Removed? ', convert: :integer)
     end
     in_qty
   end
@@ -222,6 +223,7 @@ class ProductFile
   # decrease quantity fo In option
   def remove_quantity
     @products[selection_for_in_out].decrease(in_new[:in_out_qty])
+    write_product
   end
 
   # confirmation for In option

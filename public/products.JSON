@@ -124,5 +124,23 @@
     "quantity_per_box": 60.0,
     "item_weight": 0.03,
     "box_weight": 1.8
+  },
+  {
+    "id": 15,
+    "product": "bingo",
+    "category": "well",
+    "quantity": 62326,
+    "quantity_per_box": 32.0,
+    "item_weight": 0.03,
+    "box_weight": 0.96
+  },
+  {
+    "id": 16,
+    "product": "json",
+    "category": "file",
+    "quantity": 6546,
+    "quantity_per_box": 30.0,
+    "item_weight": 0.03,
+    "box_weight": 0.9
   }
 ]

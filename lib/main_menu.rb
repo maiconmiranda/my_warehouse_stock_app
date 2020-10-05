@@ -64,3 +64,6 @@ class MainMenu
     end
   end
 end
+
+app = MainMenu.new
+app.router

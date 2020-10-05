@@ -138,8 +138,9 @@ Here is a link to [my board](https://trello.com/b/pcOipxcX/warehouse-stock-app).
 
 ## Diagram
 
+Here is a link to [Flowchart](https://drive.google.com/file/d/1as8V9XLaxx0Vfd5kc77o233gk7dYuD-K/view?usp=sharing).
 
 ## Tests
 
-Here is a link to my [testing spreadsheet]().
+Here is a link to my [testing spreadsheet](https://drive.google.com/file/d/1O69_4NuKMkQXaCRHSrXhHRSqYERMocMO/view?usp=sharing).
 
